@@ -1,0 +1,11 @@
+ <div class="new">
+      <div class="new-container">
+        <h1>編集</h1>
+        <%= form_tag("/tweets/#{@tweet.id}/update", method: :post) do %>
+        <textarea type="text" name="text" ><%= @tweet.text %></textarea>
+        <input type="submit" value="更新" >
+        <% end %>
+      </div>
+    </div>
+    
+    

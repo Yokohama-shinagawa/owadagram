@@ -1,0 +1,9 @@
+<div class="new">
+      <div class="new-container">
+        <h1>新規投稿</h1>
+        <%= form_tag("/tweets/create", method: :post) do %>
+          <textarea type="text"  name="text" placeholder="投稿内容を入力してください" ></textarea>
+          <input type="submit" value="送信" >
+        <% end %>
+      </div>
+    </div>

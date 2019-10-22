@@ -1,0 +1,16 @@
+ <h1>投稿一覧</h1>
+ 
+ <% @tweets.each do |tweet| %>
+    <div class="top">
+      <div class="article">
+        <div class="top-user">
+        <img class="user-image" src=<%= tweet.user.image %>> <%= tweet.user.name%>
+        </div>
+        <p> <%= tweet.text %></p>
+      </div>
+      <div class="article-btn">
+        <%= link_to("show","/tweets/#{tweet.id}/show") %> 
+      </div>
+    </div>
+    <% end %>
+    <%= paginate(@tweets) %>

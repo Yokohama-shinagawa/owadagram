@@ -1,0 +1,31 @@
+
+<div class="top">
+  <h1 class="user-show">ユーザー情報</h1>
+  <div class="top-user">
+  <img class="user-image" src=<%= @user.image %>> <%= @user.name%>
+  </div>
+  <P>登録日：<%= @user.created_at %></P>
+  <P>更新日：<%= @user.updated_at%></P>
+</div>
+
+
+<h1 class="user-show">投稿一覧</h1>
+<% @tweets.each do |tweet| %>
+    <div class="top">
+      <div class="article">
+        <div class="top-user">
+        <img class="user-image" src=<%= tweet.user.image %>> <%= tweet.user.name%>
+        </div>
+        <p> <%= tweet.text %></p>
+      </div>
+      <div class="article-btn">
+   <%= link_to("show","/tweets/#{tweet.id}/show") %> 
+    </div>
+    </div>
+    <% end %>
+    
+ <div class="article-btn">
+        <%= link_to("Topに戻る","/") %>
+        <%= link_to '戻る', :back %> 
+      </div>
+   

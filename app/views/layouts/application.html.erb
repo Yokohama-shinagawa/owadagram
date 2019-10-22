@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Owadagram</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class = "header">
+      <ul class="item">
+        <% if user_signed_in? %>
+          <li><%= link_to_unless_current("マイページ", "/users/#{current_user.id}/show") %></li>
+          <li><%= link_to_unless_current("Signout", destroy_user_session_path,{method:"delete"})%></li>
+          <li><%= link_to_unless_current("New","/tweets/new") %></li>
+        <% else %>
+          <li><%= link_to_unless_current("Signin","/users/sign_in") %></li>
+          <li><%= link_to_unless_current("Submit", "/users/sign_up") %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%= yield %>
+     
+  </body>
+</html>
