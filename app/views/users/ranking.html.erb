@@ -1,0 +1,13 @@
+ <h1>投稿数ランキング</h1>
+ 
+ <% @ranking.each.with_index(1) do |id, i| %>
+    <div class="top">
+      <div class="article">
+        <div class="top-user">
+        <P><%= i%>位</P><img class="user-image" src=<%= User.find(id).image %>> 
+        <%= User.find(id).name%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    
