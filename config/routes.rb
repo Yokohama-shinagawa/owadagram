@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
   
+  get "users/ranking" => "users#ranking"
+  
   get "/" => "tweets#index"
   get "tweets/new" => "tweets#new"
   post "tweets/create" => "tweets#create"

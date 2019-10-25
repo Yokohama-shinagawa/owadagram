@@ -4,12 +4,13 @@
     <div class="top">
       <div class="article">
         <div class="top-user">
-        <img class="user-image" src=<%= tweet.user.image %>> <%= tweet.user.name%>
+        <img class="user-image" src=<%= tweet.user.image %>> 
+        <%= tweet.user.name%>
         </div>
-        <p> <%= tweet.text %></p>
+        <p class="user-tweet"> <%= tweet.text %></p>
       </div>
       <div class="article-btn">
-        <%= link_to("show","/tweets/#{tweet.id}/show") %> 
+        <%= link_to("詳細","/tweets/#{tweet.id}/show") %> 
       </div>
     </div>
     <% end %>

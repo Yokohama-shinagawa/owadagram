@@ -3,9 +3,15 @@
         <h1>編集</h1>
         <%= form_tag("/tweets/#{@tweet.id}/update", method: :post) do %>
         <textarea type="text" name="text" ><%= @tweet.text %></textarea>
+         <div class="article-btn">
         <input type="submit" value="更新" >
+        <%= link_to '戻る', :back %> 
+        </div>
         <% end %>
+         
       </div>
+     
     </div>
+    
     
     
