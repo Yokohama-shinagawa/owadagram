@@ -1,14 +1,28 @@
+
 body{
   height:100vh;
   text-align: center;
-  
+  background-image: url("/images/backgroundimage.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  top: 0;
+  z-index: 10;
 }
 
+.container{
+  padding:150px 0 0 0;
+  height: 100vh;
+  
+
+}
 
 .header{
   height:100px;
-  background-color:rgba(0,0,150,0.7);
-  
+  background-color:black;
+  font-family: "arial black";
+  width:100%;
+  position: fixed;
+  top: 0;
 }
 
 ul {
@@ -18,39 +32,39 @@ ul {
 
 .header h1{
   color:white;
-  line-height:100px;
 }
 
 a{
   text-decoration:none;
   color:black;
+  font-family: "arial black";
 }
 
 .header a{
   color:white;
+  
 }
 
 .header li{
-  margin:0 30px;
+  border-left: solid 1px;
+  border-color: white;
+  padding:0 20px;
+  transition: background-color .5s;
+}
+
+.header li:hover{
+  background-color: gray;
 }
 
 
 .item{
   line-height:100px;
   display: flex;
+  
 }
 
 
 
-body{
-  height:100vh;
-  text-align: center;
-  background-color: rgba(192,192,192,0.4);
-}
-
-h1 {
-  padding: 50px 0;
-}
 
 .user-show{
   padding:20px 0;
@@ -71,16 +85,31 @@ h1 {
    color:white;
 }
 
+.top-like{
+  display:flex;
+  justify-content: flex-end;
+}
 
 
 .top{
-  
-  background-color:rgba(0,255,255,0.3);
+  background-color:white;
+  border-radius: 15px;
   margin:50px 20vw;
   padding:20px;
 }
 
+.like-font{
+  color:red;
+}
+
 .user-image{
+  height:50px;
+  width:50px;
+  margin-right:10px;
+  margin-left: 50px;
+}
+
+.index-user-image{
   height:50px;
   width:50px;
   border-radius:10px;
@@ -91,7 +120,11 @@ h1 {
 .top-user{
   line-height: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+  border-bottom: solid 2px;
+  border-color: rgba(130,120,120,0.7);
+  
 }
 
 .user-tweet{
@@ -182,4 +215,31 @@ h1 {
   padding:20px;
 }
 
+
+/*---------------ranking--------------*/
+.ranking-h1{
+  font-family: fantasy;
+  color:white;
+} 
+
+.ranking-p{
+  font-weight:800;
+  color:white;
+}
+
+.ranking{
+  width:80%;
+  margin:0 auto;
+  overflow: hidden;
+}
+
+.ranking-user{
+  width: 33%;
+  line-height: 50px;
+  float:left;
+  justify-content: flex-start;
+  background-color: white;
+　margin:20px;
+　padding:10px;
+}
 

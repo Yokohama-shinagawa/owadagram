@@ -1,17 +1,39 @@
- <h1>投稿一覧</h1>
+ 
+ 
+ <h1>PostsList</h1>
+ <p>投稿一覧</p>
  
  <% @tweets.each do |tweet| %>
+   <% like_count = Like.where(tweet_id: tweet.id).count %>
+
     <div class="top">
       <div class="article">
         <div class="top-user">
-        <img class="user-image" src=<%= tweet.user.image %>> 
+        <img class="index-user-image" src=<%= tweet.user.image %>> 
         <%= tweet.user.name%>
         </div>
         <p class="user-tweet"> <%= tweet.text %></p>
       </div>
-      <div class="article-btn">
-        <%= link_to("詳細","/tweets/#{tweet.id}/show") %> 
+      
+      <div class="top-like">
+        <% if user_signed_in? %>
+           <% if like = Like.find_by(user_id: current_user.id,
+                        tweet_id: tweet.id) %>
+              <%= link_to("/likes/#{tweet.id}/delete", {method:"delete"}) do%>
+                <i class="fab fa-angellist fa-2x like-font"></i><%= like_count %>いいね！
+              <% end %>
+            <% else %>
+              <%= link_to("/likes/#{tweet.id}", {method:"post"}) do %>
+                <i class="fab fa-angellist fa-2x"></i><%= like_count %>いいね！
+              <% end %>
+          <% end %>
+        <% end %>
+        
       </div>
+      
     </div>
     <% end %>
     <%= paginate(@tweets) %>
+    
+    
+    

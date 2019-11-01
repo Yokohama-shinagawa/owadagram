@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
@@ -14,19 +15,22 @@
       
       <ul class="item">
         <% if user_signed_in? %>
-          <li><%= link_to_unless_current("owadagram", "/") %></li>
-          <li><%= link_to_unless_current("ランキング", "/users/ranking") %></li>
-          <li><%= link_to_unless_current("マイページ", "/users/#{current_user.id}/show") %></li>
+          <li><%= link_to("toppage", "/") %></li>
+          <li><%= link_to("ranking", "/users/ranking") %></li>
+          <li><%= link_to("mypage", "/users/#{current_user.id}/show") %></li>
           
-          <li><%= link_to_unless_current("ログアウト", destroy_user_session_path,{method:"delete"})%></li>
-          <li><%= link_to_unless_current("投稿","/tweets/new") %></li>
+          <li><%= link_to("logout", destroy_user_session_path,{method:"delete"})%></li>
+          <li><%= link_to("post","/tweets/new") %></li>
         <% else %>
-          <li><%= link_to_unless_current("ログイン","/users/sign_in") %></li>
-          <li><%= link_to_unless_current("新規登録", "/users/sign_up") %></li>
+          <li><%= link_to("login","/users/sign_in") %></li>
+          <li><%= link_to("submit", "/users/sign_up") %></li>
         <% end %>
       </ul>
     </div>
-    <%= yield %>
-     
+   
+   <div class="container">
+      <%= yield %>
+   </div>
+   
   </body>
 </html>
