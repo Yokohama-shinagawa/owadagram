@@ -1,8 +1,9 @@
-<h1 class=login-h1>ログイン画面</h1>
+<h1 class="index-h1">Login</h1>
+<p class="index-p">ログイン</p>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :メールアドレス%><br />
+    <%= f.label :Email%><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -19,7 +20,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <i class="fa fa-chevron-right"></i><%= f.submit "ログイン" , class: "login-btn" %>
   </div>
 <% end %>
 

@@ -1,12 +1,19 @@
- <h1 class="ranking-h1">Ranking</h1>
- <p class="ranking-p">ランキング</p>
+ <h1 class="index-h1">Ranking</h1>
+ <p class="index-p">ランキング</p>
  
  
- <div class="ranking">
-   <% @ranking.each.with_index(1) do |id, i| %>
-          <div class="ranking-user">
-            <P><%= i%>位</P><img class="user-image" src=<%= User.find(id).image %>> 
-            <%= User.find(id).name%>
-          </div>
-      <% end %>
-  </div>
+   <div class="ranking">
+     
+     <% @ranking.each.with_index(1) do |id, i| %>
+             <div class="parent">
+                <div class="ranking-user">
+                
+                  <P><%= i%>位</P>
+                  <div class="ranking-user-profile">
+                    <img class="user-image" src=<%= User.find(id).image %>> 
+                    <%= User.find(id).name%>
+                  </div>
+                </div>
+            </div>
+        <% end %>
+    </div>

@@ -1,15 +1,22 @@
 
-<div class="top">
-  <h1 class="user-show">ユーザー情報</h1>
-  <div class="top-user">
-  <img class="user-image" src=<%= @user.image %>> <%= @user.name%>
+
+  <h1 class="index-h1">UserProfile</h1>
+  <p class="index-p">ユーザ情報</p>
+  <div class="show-user">
+    <div class="thumb">
+      <img class="show-user-image" src=<%= @user.image %>> 
+    </div>
+    <div class="show-user-h1-p">
+      <h1><%= @user.name%></h1>
+      <p>Email:<%= @user.email%> </p>
+      <P>登録日時：<%= simple_time(@user.created_at)%></P>
+      <P>更新日時：<%= simple_time(@user.updated_at) %></P>
+    </div>
   </div>
-  <P>登録日：<%= @user.created_at %></P>
-  <P>更新日：<%= @user.updated_at%></P>
-</div>
 
 
-<h1 class="user-show">投稿一覧</h1>
+
+<h1 class="index-p"><%="#{@user.name}さんの投稿"%></h1>
 <% @tweets.each do |tweet| %>
     <div class="top">
       <div class="article">

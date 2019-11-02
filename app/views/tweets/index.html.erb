@@ -1,38 +1,45 @@
  
  
- <h1>PostsList</h1>
- <p>投稿一覧</p>
+ <h1 class="index-h1">PostsList</h1>
+ <p class="index-p">投稿一覧</p>
  
  <% @tweets.each do |tweet| %>
    <% like_count = Like.where(tweet_id: tweet.id).count %>
 
     <div class="top">
-      <div class="article">
-        <div class="top-user">
-        <img class="index-user-image" src=<%= tweet.user.image %>> 
-        <%= tweet.user.name%>
-        </div>
-        <p class="user-tweet"> <%= tweet.text %></p>
-      </div>
-      
-      <div class="top-like">
-        <% if user_signed_in? %>
-           <% if like = Like.find_by(user_id: current_user.id,
-                        tweet_id: tweet.id) %>
-              <%= link_to("/likes/#{tweet.id}/delete", {method:"delete"}) do%>
-                <i class="fab fa-angellist fa-2x like-font"></i><%= like_count %>いいね！
-              <% end %>
-            <% else %>
-              <%= link_to("/likes/#{tweet.id}", {method:"post"}) do %>
-                <i class="fab fa-angellist fa-2x"></i><%= like_count %>いいね！
-              <% end %>
-          <% end %>
-        <% end %>
+        <div class="article">
+              <span class="box-title">Tweet</span>
+              
+              <div class="top-user">
+                  <img class="index-user-image" src=<%= tweet.user.image %>> 
+                  <%= tweet.user.name%>
+              </div>
+              <p class="user-tweet"> <%= tweet.text %></p>
+              
+            
+            
+            <!----like----------start------------------------------------------------->
+              <div class="top-like">
+                <% if user_signed_in? %>
+                   <% if like = Like.find_by(user_id: current_user.id,
+                                tweet_id: tweet.id) %>
+                      <%= link_to("/likes/#{tweet.id}/delete", {method:"delete"}) do%>
+                        <i class="fab fa-angellist fa-2x like-font"></i><%= like_count %>いいね！
+                      <% end %>
+                    <% else %>
+                      <%= link_to("/likes/#{tweet.id}", {method:"post"}) do %>
+                        <i class="fab fa-angellist fa-2x"></i><%= like_count %>いいね！
+                      <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+         <!----like----------end------------------------------------------------->
         
-      </div>
-      
+        </div>
     </div>
-    <% end %>
+
+    
+<% end %>
     <%= paginate(@tweets) %>
     
     

@@ -1,9 +1,12 @@
-<div class="new">
+<h1 class = "index-h1">Post</h1>
+<p class="index-p">投稿</p>
+
+
       <div class="new-container">
-        <h1>新規投稿</h1>
+        
         <%= form_tag("/tweets/create", method: :post) do %>
           <textarea type="text"  name="text" placeholder="投稿内容を入力してください" ></textarea>
-          <input type="submit" value="送信" >
+          <input  type="submit" value="送信" >
         <% end %>
       </div>
-    </div>
+   
