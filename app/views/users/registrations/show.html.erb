@@ -18,18 +18,30 @@
 
 <h1 class="index-p"><%="#{@user.name}さんの投稿"%></h1>
 <% @tweets.each do |tweet| %>
+   <% like_count = Like.where(tweet_id: tweet.id).count %>
+
     <div class="top">
-      <div class="article">
-        <div class="top-user">
-        <img class="user-image" src=<%= tweet.user.image %>> <%= tweet.user.name%>
+        <div class="article-show">
+              <span class="box-title">Tweet</span>
+              
+              <div class="top-user">
+                  <img class="index-user-image" src=<%= tweet.user.image %>> 
+                  <%= tweet.user.name%>
+              </div>
+              <p class="user-tweet"> <%= tweet.text %></p>
+              
+             <div class="article-btn">
+               <%= link_to("show","/tweets/#{tweet.id}/show") %> 
+             </div>
+            
+            
+        
         </div>
-        <p> <%= tweet.text %></p>
-      </div>
-      <div class="article-btn">
-   <%= link_to("show","/tweets/#{tweet.id}/show") %> 
     </div>
-    </div>
-    <% end %>
+
+    
+<% end %>
+
     
  <div class="article-btn">
         <%= link_to("Topに戻る","/") %>

@@ -1,24 +1,33 @@
-<div class="top">
-      <div class="article">
-        <div class="top-user">
-        <img class="user-image" src=<%= @tweet.user.image %>> <%= @tweet.user.name%>
-        </div>
-        <p> <%= @tweet.text %></p>
-      </div>
-      
-      <div class="createtime">
-        <p>投稿日　<%= @tweet.created_at %></p>
-        <p>更新日　<%= @tweet.updated_at%></p>
-      </div>
-      
-      <div class="article-btn">
-        <% if user_signed_in? && current_user.id == @tweet.user.id%>
-          <%= link_to("編集","/tweets/#{@tweet.id}/edit") %>
-          <%= link_to("削除","/tweets/#{@tweet.id}/destroy", method: :delete) %>
-        <% end %>
-          <%= link_to '戻る', :back %> 
-      </div>
-    </div>
+
+   
     
+    <div class="top">
+        <div class="article-show">
+              <span class="box-title">Tweet</span>
+              
+              <div class="top-user">
+                  <img class="index-user-image" src=<%= @tweet.user.image %>> 
+                  <%= @tweet.user.name%>
+              </div>
+              <p class="user-tweet"> <%= @tweet.text %></p>
+              
+              <div class="createtime">
+                <!-- aimple_timeはapplication_helperで定めた独自関数  -->
+                <p>投稿日　<%= simple_time(@tweet.created_at) %></p>
+                <p>更新日　<%= simple_time(@tweet.updated_at)%></p>
+              </div>
+              
+             <div class="article-btn">
+               <% if user_signed_in? && current_user.id == @tweet.user.id%>
+                 <%= link_to("edit","/tweets/#{@tweet.id}/edit") %>
+                 <%= link_to("delete","/tweets/#{@tweet.id}/destroy", method: :delete) %>
+               <% end %>
+                 <%= link_to 'back', :back %> 
+             </div>
+            
+            
+        
+        </div>
+
     
     

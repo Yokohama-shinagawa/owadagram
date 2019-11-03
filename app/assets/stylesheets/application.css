@@ -6,7 +6,7 @@ body{
   background-size: cover;
   background-attachment: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 0;
 }
 
 .index-h1{
@@ -30,18 +30,46 @@ body{
   font-family: "arial black";
   width:100%;
   position: fixed;
+  padding-left: 30px;
   top: 0;
   z-index: 10;
 }
+
+.inner{
+ width:100%;
+}
+
+.inner input{
+    border:solid 2px white;
+    color:white;
+    font-family: bold;
+}
+
+.header-search input{
+    width:200px;
+}
+
+
+
+.header>.flex{
+  align-items: center;
+  height:100px; 
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 ul {
   list-style: none;
   justify-content: flex-end;
 }
 
+
+
 .header h1{
   color:white;
-  
 }
 
 a{
@@ -52,34 +80,36 @@ a{
 
 .header a{
   color:white;
-  
 }
 
-.header li{
+.menu-form{
+    float:left;
+}
+
+.menu{
   border-left: solid 1px;
   border-color: white;
   padding:0 20px;
   transition: background-color .5s;
 }
 
-.header li:hover{
+.menu:hover{
   background-color: gray;
+}
+
+
+
+
+
+.serach-icon{
+    color:white;
 }
 
 
 .item{
   line-height:100px;
   display: flex;
-  
 }
-
-
-
-
-.user-show{
-  padding:20px 0;
-}
-
 
 
 .article-btn{
@@ -102,7 +132,8 @@ a{
 
 
 .top{
-  margin:0 20vw;
+  margin:0 auto;
+  width:60%;
 }
 
 .article{
@@ -152,7 +183,6 @@ a{
   padding-bottom: 10px;
   border-bottom: solid 2px;
   border-color: rgba(130,120,120,0.7);
-  
 }
 
 .user-tweet{
@@ -210,7 +240,7 @@ a{
 
 
 
-/*------------------新規登録---------------------*/
+/*------------------新規登録---ログイン------------------*/
 .field{
   margin:20px 0;
   font-weight:800;
@@ -228,26 +258,37 @@ a{
   margin:10px;
 }
 
-.login-btn {
+.login-btn, .submit-btn {
   font-weight:800;
   color:white;
 }
 
-.actions, .new-container input, .article-btn a{
+.actions , .new-container input, .article-btn a{
    color:white; 
    background: rgba(100,149, 247,1);
    display: inline-block;
    padding:3px 5px;
    border-bottom: solid 4px #627295;
    border-radius: 5px;
-   transition: background-color 1s;
+   transition: background-color 0.5s;
 }
 
-.actions, .new-container input:hover{
+.new-container input:hover{
    background:rgba(100,149, 247,0.7);
 }
 
-.actions, .new-container input:active{
+.actions:hover{
+     background:rgba(100,149, 247,0.7);
+}
+
+.new-container input:active{
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+}
+
+.actions input:active{
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
@@ -323,8 +364,10 @@ a{
     padding: 0.5em 1em;
     width:60%;
     margin: 0 auto;
+    margin-top:40px;
+    margin-bottom: 40px;
     background: #f4f4f4;
-    border-left: solid 6px #5bb7ae;
+    border-left: solid 6px #95ccff;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
     display:flex;
 }
@@ -350,4 +393,39 @@ a{
     width:70%;
 }
 
+.show-user-h1-p h1{
+    line-height: 100px;
+}
+
+.show-user-h1-p p{
+    line-height: 30px;
+}
+
+.article-show{
+    position: relative;
+    margin: 2em 0 0 0;
+    padding: 2em 1em 0 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.article-show .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    color: #95ccff;
+    font-weight: bold;
+}
+
 /*--------------show--------end-------------:/
+
+/*--------pagenation------------------------*/
+.first a, .page a, .gap a, .last a, .next a, .pagination a, .prev a{
+    color:white;
+}
+/*-------------------------------------------*/

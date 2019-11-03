@@ -3,6 +3,7 @@
  <h1 class="index-h1">PostsList</h1>
  <p class="index-p">投稿一覧</p>
  
+ 
  <% @tweets.each do |tweet| %>
    <% like_count = Like.where(tweet_id: tweet.id).count %>
 

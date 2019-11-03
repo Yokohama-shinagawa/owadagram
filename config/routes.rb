@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   delete "tweets/:id/destroy" => "tweets#destroy"
   get "tweets/:id/edit" => "tweets#edit"
   post "tweets/:id/update" => "tweets#update"
+  post "tweets/search" => "tweets#search"
   
   post "likes/:id" => "likes#create"
   delete "likes/:id/delete" => "likes#destroy"

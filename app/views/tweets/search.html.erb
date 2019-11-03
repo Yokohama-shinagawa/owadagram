@@ -1,0 +1,23 @@
+<h1 class="index-h1">Result</h1>
+<p class="index-p">結果</p>
+
+
+<% @lists.each do |tweet| %>
+  <div class="top">
+    <div class="article">
+        <span class="box-title">Tweet</span>
+              
+        <div class="top-user">
+            <img class="index-user-image" src=<%= tweet.user.image %>> 
+              <%= tweet.user.name%>
+            </div>
+        <p class="user-tweet"> <%= tweet.text %></p>
+     
+    </div>
+  </div>
+<% end %>
+  
+  
+  <% if @lists.empty? %>
+    <h2>検索結果は０件です</h2>
+  <% end %>

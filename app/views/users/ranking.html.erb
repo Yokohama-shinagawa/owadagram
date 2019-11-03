@@ -7,7 +7,6 @@
      <% @ranking.each.with_index(1) do |id, i| %>
              <div class="parent">
                 <div class="ranking-user">
-                
                   <P><%= i%>位</P>
                   <div class="ranking-user-profile">
                     <img class="user-image" src=<%= User.find(id).image %>> 
