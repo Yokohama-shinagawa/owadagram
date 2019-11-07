@@ -7,6 +7,7 @@ body{
   background-attachment: fixed;
   top: 0;
   z-index: 0;
+  position: relative;
 }
 
 .index-h1{
@@ -20,8 +21,7 @@ body{
 }
 
 .container{
-  padding:150px 0 0 0;
-  height: 100vh;
+  padding:150px 0 40px 0;
 }
 
 .header{
@@ -429,3 +429,33 @@ a{
     color:white;
 }
 /*-------------------------------------------*/
+
+.footer{
+    position:absolute;
+    position: fixed;
+    z-index: 10;
+    bottom:0;
+    height: 40px;
+    width:100%;
+    color:white;
+    background-color:black;
+    text-align: center;
+    line-height: 40px;
+}
+
+.footer p{
+     z-index: 10;
+     font-size: 10px;
+}
+
+/*----------search----------------------*/
+.alert{
+    background-color: orange;
+    width:30%;
+    margin:0 auto;
+    margin-top: 15vh;
+    border-radius: 10px;
+    color:white;
+}
+
+/*----------search--end-----------------*/

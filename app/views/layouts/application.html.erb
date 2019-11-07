@@ -13,39 +13,45 @@
   </head>
 
   <body>
-    <div class = "header">
-        <% if user_signed_in? %>
-          <div class="inner flex">
-              <div class="header-search">
-                <%= form_tag("/tweets/search", method: :post) do %>
-                    <input type="text"  name="freeword" placeholder="投稿を検索" required>
-                    <button type="submit">
-                      <i class="fas fa-search serach-icon"></i>
-                    </button>
-                <% end %>
-              </div>
+    
+    
+      <div class = "header">
+          <% if user_signed_in? %>
+            <div class="inner flex">
+                <div class="header-search">
+                  <%= form_tag("/tweets/search", method: :post) do %>
+                      <input type="text"  name="freeword" placeholder="投稿を検索" required>
+                      <button type="submit">
+                        <i class="fas fa-search serach-icon"></i>
+                      </button>
+                  <% end %>
+                </div>
+                  <ul class="item">
+                    <li class="menu"><%= link_to("toppage", "/") %></li>
+                    <li class="menu"><%= link_to("ranking", "/users/ranking") %></li>
+                    <li class="menu"><%= link_to("mypage", "/users/#{current_user.id}/show") %></li>
+                    
+                    <li class="menu"><%= link_to("logout", destroy_user_session_path,{method:"delete"})%></li>
+                    <li class="menu"><%= link_to("post","/tweets/new") %></li>
+                  </ul>
+          </div>
+          <% else %>
+              <div class="default-header">
                 <ul class="item">
-                  <li class="menu"><%= link_to("toppage", "/") %></li>
-                  <li class="menu"><%= link_to("ranking", "/users/ranking") %></li>
-                  <li class="menu"><%= link_to("mypage", "/users/#{current_user.id}/show") %></li>
-                  
-                  <li class="menu"><%= link_to("logout", destroy_user_session_path,{method:"delete"})%></li>
-                  <li class="menu"><%= link_to("post","/tweets/new") %></li>
+                  <li class="menu"><%= link_to("login","/users/sign_in") %></li>
+                  <li class="menu"><%= link_to("submit", "/users/sign_up") %></li>
                 </ul>
-        </div>
-        <% else %>
-            <div class="default-header">
-              <ul class="item">
-                <li class="menu"><%= link_to("login","/users/sign_in") %></li>
-                <li class="menu"><%= link_to("submit", "/users/sign_up") %></li>
-              </ul>
-            </div>
-        <% end %>
+              </div>
+          <% end %>
+      </div>
+     
+     <div class="container">
+        <%= yield %>
+     </div>
+    <div class="footer">
+      <p>COPYRIGHT © OWADA CO.,LTD. ALL RIGHTS RESERVED</p> 
     </div>
-   
-   <div class="container">
-      <%= yield %>
-   </div>
+  
    
   </body>
 </html>

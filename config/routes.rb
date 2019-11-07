@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {
+  devise_for :users,:controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
   } 
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "users/ranking" => "users#ranking"
   
   get "/" => "tweets#index"
+
   get "tweets/new" => "tweets#new"
   post "tweets/create" => "tweets#create"
   get "tweets/:id/show" => "tweets#show"
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   get "tweets/:id/edit" => "tweets#edit"
   post "tweets/:id/update" => "tweets#update"
   post "tweets/search" => "tweets#search"
+  get "tweets/search" => "tweets#search"
   
   post "likes/:id" => "likes#create"
   delete "likes/:id/delete" => "likes#destroy"
