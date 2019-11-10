@@ -33,4 +33,6 @@ Rails.application.routes.draw do
   post "likes/:id" => "likes#create"
   delete "likes/:id/delete" => "likes#destroy"
   
+  resources :comments, only: :create
+  
  end

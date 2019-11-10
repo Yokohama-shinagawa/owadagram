@@ -79,3 +79,6 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'jquery-rails' 
+gem 'jquery-ui-rails'
+

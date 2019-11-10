@@ -35,9 +35,25 @@
                 <% end %>
               </div>
          <!----like----------end------------------------------------------------->
+         <% if user_signed_in? %>
+              <%= form_for @comment, :html => {:class => "comment-form"} do |f| %>
+                    <%= f.text_field :text %> <!-- idがモデル名＿カラム名になっている　-->
+                    <%= f.hidden_field :tweet_id, :value => tweet.id %>
+                    <%= f.submit '投稿' %>
+              <% end %>
+              
+              <ul class= "comment-form">
+                <%= render @comments %>
+              </ul>
+        <% end %>
+        
+    </div>
+    
+    
+        
+      
         
         </div>
-    </div>
 
     
 <% end %>

@@ -10,6 +10,8 @@ class TweetsController < ApplicationController
   
   def index
     @tweets = Tweet.all.order(created_at: "DESC").page(params[:page]).per(5)
+    @comments = Comment.all
+    @comment = Comment.new
   end
   
   def new

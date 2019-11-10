@@ -459,3 +459,9 @@ a{
 }
 
 /*----------search--end-----------------*/
+
+.comment-form input {
+    color:white;
+    background-color:black; 
+}
+
