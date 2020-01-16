@@ -17,6 +17,10 @@
       <%= f.check_box :remember_me %>
       <%= f.label :ログイン情報を保存する %>
     </div>
+     <%= f.hidden_field :email, value: 'kenta@owada' %>
+        <%= f.hidden_field :password, value: 'aaaaaa' %>
+        </br>
+        <%= f.submit 'テストログイン', class: "login-btn test-btn" %>
   <% end %>
 
   <div class="actions">

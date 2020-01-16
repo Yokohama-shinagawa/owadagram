@@ -464,4 +464,16 @@ a{
     color:white;
     background-color:black; 
 }
+.test-btn{
+  background-color: rgba(255,0,0,1);
+  border-radius: 5px;
+  padding:5px;
+}
+.test-btn:hover{
+  background-color: rgba(255,0,0,0.5);
+}
+.field-image{
+  color: black;
+}
+
 
